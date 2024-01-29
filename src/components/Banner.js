@@ -46,32 +46,41 @@ const StyledSubHeader = styled.h2`
   line-height: 58px;
 `  
 
-// const date = new Date(); 
-
-// let year= date.getFullYear(); 
-
-// console.log(year); 
 
 
-const Banner = ({ heading, subtitle, yearfounded, body }) => (
-  <StyledBanner>
-    
-    <Container>
-      <StyledInner>
-        <StyledText>
-          <StyledHeader>{heading}</StyledHeader>
-          <StyledSubHeader>{subtitle}</StyledSubHeader>
-          {/* <StyledSubHeader>{yearfounded}</StyledSubHeader> */}
-          <p>{body}</p>
-        </StyledText>
-        <img
-          src={bannerImage}
-          alt="Two people laughing sat at a desk with laptops and notepads "
-        />
-      </StyledInner>
-    </Container>
-  </StyledBanner>
-);
+
+const Banner = ({ heading, yearfounded, body }) => {
+
+  const foundedDate = new Date(yearfounded); 
+  const currentDate = new Date()
+
+  let foundedYear = foundedDate.getFullYear();
+  let currentYear = currentDate.getFullYear();  
+
+  console.log(foundedYear, currentYear, currentYear - foundedYear)
+
+
+
+
+  return (
+    <StyledBanner>
+      <Container>
+        <StyledInner>
+          <StyledText>
+            <StyledHeader>{heading}</StyledHeader>
+            <StyledSubHeader>{currentYear - foundedYear} years of experience</StyledSubHeader>
+            <p>{body}</p>
+          </StyledText>
+          <img
+            src={bannerImage}
+            alt="Two people laughing sat at a desk with laptops and notepads "
+          />
+        </StyledInner>
+      </Container>
+    </StyledBanner>
+  );
+}
+
 
 
 export default Banner;
