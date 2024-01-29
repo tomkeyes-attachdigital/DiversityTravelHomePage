@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
-import { sectionMargins } from '../styles';
+
+import {
+  brandColours,
+  brandFonts,
+  minBreakpointQuery,
+  sectionMargins,
+} from '../styles';
 
 import bannerImage from '../images/bannerImage.png';
 
@@ -10,17 +16,24 @@ const StyledBanner = styled.section`
 `;
 
 const StyledInner = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
+  display: grid;
+  gap: 30px;
+
+  ${minBreakpointQuery.small`
+    gap: 40px;
+  `}
+
+  ${minBreakpointQuery.medium`
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;   
+    gap: 150px 
+  `}
 `;
 
 const StyledText = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  font-family: Georgia, serif;
-  color: #124848;
+  font-family: ${brandFonts.serif};
+  color: ${brandColours.primary}
 `;
 
 const StyledHeader = styled.h1`
@@ -32,17 +45,19 @@ const StyledHeader = styled.h1`
 const StyledSubHeader = styled.h2`
   font-size: 30px;
   font-weight: 400;
-  color: #c74e18;
+  color: ${brandColours.secondary};
   line-height: 58px;
 `  
 
 const StyledBody = styled.p`
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: ${brandFonts.sans};
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
-    width: 478px;
-    height: 150px;
+
+    ${minBreakpointQuery.medium`
+      max-width: 478px;
+  `}
 `  
 
 const Banner = ({ heading, yearfounded, body }) => {

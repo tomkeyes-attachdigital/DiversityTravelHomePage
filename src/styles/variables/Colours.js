@@ -11,9 +11,9 @@ export const standardColours = {
 };
 
 export const brandColours = {
-  primary: '#0C25AC', // blue
-  secondary: '#141414', // dark grey
-  tertiary: '#EAF0F1', // light grey
+  primary: '#124848', // dark grey
+  secondary: '#c74e18', // orange
+  tertiary: '#f1ebda', // beige
 };
 
 export const elementColours = {

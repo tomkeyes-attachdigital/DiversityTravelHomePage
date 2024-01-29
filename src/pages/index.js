@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Banner from '../components/Banner';
+import Video from '../components/Video';
 
 const IndexPage = () => {
   const {
@@ -23,6 +24,7 @@ const IndexPage = () => {
     <Layout seo={seoMetaTags}>
       <main>
         <Banner heading={title} yearfounded={yearfounded} body={bannerparagraph} />
+        <Video/>
       </main>
     </Layout>
   );

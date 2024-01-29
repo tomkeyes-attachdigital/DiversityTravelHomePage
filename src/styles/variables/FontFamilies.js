@@ -1,3 +1,5 @@
 export const brandFonts = {
-  primary: "'Montserrat', sans-serif",
+  serif: "'Georgia', serif",
+  sans: "'Arial', 'Helvetica', sans-serif",
+
 };

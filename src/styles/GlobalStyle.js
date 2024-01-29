@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { brandFonts, elementColours, fontSize, fontWeights } from '../styles';
+import { brandColours, brandFonts, elementColours, fontSize, fontWeights } from '../styles';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -25,7 +25,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${fontWeights.regular};
     ${fontSize(16)};
     line-height: 1.3;
-    background: #f1ebda;
+    /* background: #f1ebda; */
+    background: ${brandColours.tertiary}
     
   }
 
