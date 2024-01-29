@@ -5,7 +5,7 @@ import Banner from '../components/Banner';
 
 const IndexPage = () => {
   const {
-    datoCmsHome: { seoMetaTags, title },
+    datoCmsHome: { seoMetaTags, title, subtitle, yearfounded, bannerparagraph },
   } = useStaticQuery(graphql`
     query IndexPageQuery {
       datoCmsHome {
@@ -13,6 +13,9 @@ const IndexPage = () => {
           ...GatsbyDatoCmsSeoMetaTags
         }
         title
+        subtitle
+        yearfounded
+        bannerparagraph
       }
     }
   `);
@@ -20,7 +23,7 @@ const IndexPage = () => {
   return (
     <Layout seo={seoMetaTags}>
       <main>
-        <Banner heading={title} />
+        <Banner heading={title} subtitle={subtitle} yearfounded={yearfounded} body={bannerparagraph} />
       </main>
     </Layout>
   );

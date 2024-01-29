@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
-import logo from '../images/logo.svg';
+import logo from '../images/diversityTravelLogo.svg';
 
 const StyledHeader = styled.header``;
 
