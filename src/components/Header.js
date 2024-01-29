@@ -7,13 +7,15 @@ const StyledHeader = styled.header``;
 
 const StyledInner = styled.div``;
 
-const StyledLogo = styled.img``;
+const StyledLogo = styled.img`
+  margin-top: 10px;
+  `;
 
 const Header = () => (
   <StyledHeader>
     <Container>
       <StyledInner>
-        <StyledLogo src={logo} alt="Logo" />
+        <StyledLogo src={logo} alt="Diversity Travel Logo" />
       </StyledInner>
     </Container>
   </StyledHeader>

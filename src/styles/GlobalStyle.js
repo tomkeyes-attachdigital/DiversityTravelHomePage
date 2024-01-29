@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${fontWeights.regular};
     ${fontSize(16)};
     line-height: 1.3;
+    background: #f1ebda;
+    
   }
 
   h1,
