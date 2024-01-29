@@ -19,48 +19,38 @@ const StyledText = styled.section`
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-
-  p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #124848;
-    line-height: 30px;
-    width: 478px;
-    height: 150px;
-  }
+  font-family: Georgia, serif;
+  color: #124848;
 `;
 
 const StyledHeader = styled.h1`
-  font-family: Georgia, serif;
   font-size: 50px;
   font-weight: 700;
-  color: #124848;
   line-height: 58px;
-  `
+`
+
 const StyledSubHeader = styled.h2`
-  font-family: Georgia, serif;
   font-size: 30px;
   font-weight: 400;
   color: #c74e18;
   line-height: 58px;
 `  
 
-
-
+const StyledBody = styled.p`
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    width: 478px;
+    height: 150px;
+`  
 
 const Banner = ({ heading, yearfounded, body }) => {
 
   const foundedDate = new Date(yearfounded); 
   const currentDate = new Date()
-
   let foundedYear = foundedDate.getFullYear();
   let currentYear = currentDate.getFullYear();  
-
-  console.log(foundedYear, currentYear, currentYear - foundedYear)
-
-
-
 
   return (
     <StyledBanner>
@@ -69,7 +59,7 @@ const Banner = ({ heading, yearfounded, body }) => {
           <StyledText>
             <StyledHeader>{heading}</StyledHeader>
             <StyledSubHeader>{currentYear - foundedYear} years of experience</StyledSubHeader>
-            <p>{body}</p>
+            <StyledBody>{body}</StyledBody>
           </StyledText>
           <img
             src={bannerImage}
