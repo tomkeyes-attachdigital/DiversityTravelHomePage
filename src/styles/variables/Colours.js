@@ -12,8 +12,11 @@ export const standardColours = {
 
 export const brandColours = {
   primary: '#124848', // dark grey
-  secondary: '#c74e18', // orange
-  tertiary: '#f1ebda', // beige
+  secondary: '#c74e18', // dark orange
+  tertiary: '#f1ebda', // cream
+  quaternary: '#ff9a52', // orange
+  quinary: '#d0eec6', // beige
+
 };
 
 export const elementColours = {
