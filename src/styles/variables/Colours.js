@@ -16,6 +16,7 @@ export const brandColours = {
   tertiary: '#f1ebda', // cream
   quaternary: '#ff9a52', // orange
   quinary: '#d0eec6', // beige
+  senary: '#d3f0c8', // light-green
 
 };
 
