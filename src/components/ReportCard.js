@@ -1,18 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
-import GradientOverlay from "../images/GradientCard.png"
-
-
 
 const StyledReportCard = styled.div`
-
   overflow: hidden;
   position: relative;
   cursor: pointer;
-
-  max-width: 380px;
-  max-height: 488px;
+  border-radius: 15px;
   margin-bottom: 30px;
 
   ${minBreakpointQuery.medium`
@@ -49,14 +43,26 @@ const StyledPill = styled.div`
   `}
 `;
 
-const StyledOverlay = styled.img`
+const StyledOverlay = styled.div`
   position: absolute;
-  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+  rgba(0,0,0,0.01) 0%, 
+  rgba(14,50,41,1) 100%
+  );
+
+  &:hover {
+    background: linear-gradient(
+  rgba(0,0,0,0.01) 50%, 
+  rgba(14,50,41,1) 100%
+  );
+  }
 `;
 
 const StyledImage = styled.img`
-  z-index: -1;
-  border-radius: 15px;
+  max-height: 100%;
+  max-width: 100%
 `;
 
 const StyledContent = styled.div`
@@ -65,8 +71,10 @@ const StyledContent = styled.div`
   bottom: 40px;
   max-width: 280px;
 
+  transform: translateY(38%);
+
   &:hover {
-    transform: translate( 0, 0, 100px);
+    transform: translateY(0%)
   }
 
   ${minBreakpointQuery.medium`
@@ -108,7 +116,7 @@ const StyledLink = styled.p`
 const ReportCard = ({ reportImage, alt }) => {
   return (
     <StyledReportCard>
-      <StyledOverlay src={GradientOverlay} alt={alt} />
+      <StyledOverlay/>
       <StyledImage src={reportImage} alt={alt} />
       <StyledPill>Report</StyledPill>
       <StyledContent>
