@@ -2,6 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
 
+
+//Initialised for transform hover animation
+const StyledContent = styled.div`
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  max-width: 280px;
+  transform: translateY(38%);
+  transition-timing-function: ease-in-out;
+  transition: 0.4s;
+
+  ${minBreakpointQuery.medium`
+    left: 25px;
+    bottom: 25px;
+  `}
+
+  ${minBreakpointQuery.large`
+    left: 40px;
+    bottom: 40px;
+  `}
+`;
+
+//Initialised for gradient hover effect
+const StyledOverlay = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+  rgba(0,0,0,0.01) 0%, 
+  rgba(14,50,41,1) 100%
+  );
+`;
+
 const StyledReportCard = styled.div`
   overflow: hidden;
   position: relative;
@@ -13,6 +46,19 @@ const StyledReportCard = styled.div`
     margin-left: 10px;
     margin-right: 10px;
   `}
+
+  &:hover ${StyledContent} {
+    transition-timing-function: ease-in-out;
+    transition: 0.4s;
+    transform: translateY(0%);
+  }
+
+  &:hover ${StyledOverlay} {
+    background: linear-gradient(
+    rgba(0,0,0,0.01) 20%, 
+    rgba(14,50,41,1) 100%
+    );
+  }
 `;
 
 const StyledPill = styled.div`
@@ -43,49 +89,9 @@ const StyledPill = styled.div`
   `}
 `;
 
-const StyledOverlay = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-  rgba(0,0,0,0.01) 0%, 
-  rgba(14,50,41,1) 100%
-  );
-
-  &:hover {
-    background: linear-gradient(
-  rgba(0,0,0,0.01) 50%, 
-  rgba(14,50,41,1) 100%
-  );
-  }
-`;
-
 const StyledImage = styled.img`
   max-height: 100%;
   max-width: 100%
-`;
-
-const StyledContent = styled.div`
-  position: absolute;
-  left: 40px;
-  bottom: 40px;
-  max-width: 280px;
-
-  transform: translateY(38%);
-
-  &:hover {
-    transform: translateY(0%)
-  }
-
-  ${minBreakpointQuery.medium`
-    left: 25px;
-    bottom: 25px;
-  `}
-
-  ${minBreakpointQuery.large`
-    left: 40px;
-    bottom: 40px;
-  `}
 `;
 
 const StyledHeader = styled.h3`
@@ -105,12 +111,16 @@ const StyledHeader = styled.h3`
   `}
 `;
 
-const StyledLink = styled.p`
+const StyledLink = styled.a`
   font-family: ${brandFonts.sans};
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   color: ${brandColours.quinary};
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ReportCard = ({ reportImage, alt }) => {
