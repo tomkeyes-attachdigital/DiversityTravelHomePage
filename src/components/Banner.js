@@ -27,7 +27,6 @@ const StyledInner = styled.section`
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: space-between;   
-    gap: 150px 
   `}
 `;
 
@@ -40,14 +39,14 @@ const StyledHeader = styled.h1`
   font-size: 50px;
   font-weight: 700;
   line-height: 58px;
-`
+`;
 
 const StyledSubHeader = styled.h2`
   font-size: 30px;
   font-weight: 400;
   color: ${brandColours.secondary};
   line-height: 58px;
-`  
+`;
 
 const StyledBody = styled.p`
     font-family: ${brandFonts.sans};
@@ -58,7 +57,16 @@ const StyledBody = styled.p`
     ${minBreakpointQuery.medium`
       max-width: 478px;
   `}
-`  
+`;
+const StyledImage = styled.img`
+  display: flex;
+  justify-self: center;
+  
+  ${minBreakpointQuery.medium`
+      justify-self: end;
+  `}
+
+`;
 
 const Banner = ({ heading, yearfounded, body }) => {
 
@@ -76,7 +84,7 @@ const Banner = ({ heading, yearfounded, body }) => {
             <StyledSubHeader>{currentYear - foundedYear} years of experience</StyledSubHeader>
             <StyledBody>{body}</StyledBody>
           </StyledText>
-          <img
+          <StyledImage
             src={bannerImage}
             alt="Two people laughing sat at a desk with laptops and notepads "
           />
