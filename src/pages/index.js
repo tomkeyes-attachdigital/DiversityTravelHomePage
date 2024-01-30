@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Banner from '../components/Banner';
 import Video from '../components/Video';
 import Reports from '../components/Reports';
+import Form from '../components/Form';
 
 const IndexPage = () => {
   const {
@@ -27,6 +28,7 @@ const IndexPage = () => {
         <Banner heading={title} yearfounded={yearfounded} body={bannerparagraph} />
         <Video />
         <Reports />
+        <Form />
       </main>
     </Layout>
   );
