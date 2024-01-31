@@ -6,21 +6,26 @@ import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
 //Initialised for transform hover animation
 const StyledContent = styled.div`
   position: absolute;
-  left: 40px;
-  bottom: 40px;
+  left: 0px;
+  bottom: 0px;
   max-width: 280px;
+  transition: transform 0.4s ease-in-out;
   transform: translateY(38%);
-  transition-timing-function: ease-in-out;
-  transition: 0.4s;
+  margin-left: 25px;
+  margin-bottom: 35px;
 
   ${minBreakpointQuery.medium`
-    left: 25px;
-    bottom: 25px;
+    left: 0px;
+    bottom: 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
   `}
 
   ${minBreakpointQuery.large`
-    left: 40px;
-    bottom: 40px;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-bottom: 40px;
   `}
 `;
 
@@ -48,8 +53,6 @@ const StyledReportCard = styled.div`
   `}
 
   &:hover ${StyledContent} {
-    transition-timing-function: ease-in-out;
-    transition: 0.4s;
     transform: translateY(0%);
   }
 
@@ -75,8 +78,8 @@ const StyledPill = styled.div`
   height: 28px;
   border-radius: 20px;
   position: absolute;
-  left: 40px;
-  top: 40px;
+  left: 25px;
+  top: 25px;
 
   ${minBreakpointQuery.medium`
     left: 25px;
@@ -96,11 +99,11 @@ const StyledImage = styled.img`
 
 const StyledHeader = styled.h3`
   font-family: ${brandFonts.serif};
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   color: ${brandColours.tertiary};
   line-height: 35px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   ${minBreakpointQuery.medium`
     font-size: 20px;
@@ -108,6 +111,7 @@ const StyledHeader = styled.h3`
 
   ${minBreakpointQuery.large`
     font-size: 30px;
+    margin-bottom: 40px;
   `}
 `;
 
