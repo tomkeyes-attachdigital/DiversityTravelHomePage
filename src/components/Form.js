@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
 import { brandColours, brandFonts, sectionMargins, minBreakpointQuery } from '../styles';
@@ -116,33 +117,67 @@ const StyledButton = styled.button`
 `;
 
 const ContactForm = () => {
+
+  const [formData, setFormData] = useState({firstName: "", surname: "", email: "", message: ""});
+ 
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData)
+};
   return (
     <StyledContactForm>
       <Container>
         <StyledOuter>
           <StyledInner>
             <StyledHeader>Contact Us</StyledHeader>
-            <StyledForm>
+            <StyledForm onSubmit={handleSubmit}> 
               <StyledName>
                 <StyledLabel>
                   First Name
                   <StyledTextInput 
-                  type="text" name="firstName" id="firstName" />
+                    type="text" 
+                    name="firstName" 
+                    id="firstName" 
+                    value={formData.firstName} 
+                    onChange={handleChange}/>
                 </StyledLabel>
                 <StyledLabel>
                   Second Name
-                  <StyledTextInput type="text" name="secondName" id="secondName" />
+                  <StyledTextInput 
+                    type="text" 
+                    name="surname" 
+                    id="surname" 
+                    value={formData.surname} 
+                    onChange={handleChange}/>
                 </StyledLabel>
               </StyledName>
                 <StyledLabel>
                   Email address
-                  <StyledTextInput type="email" name="email" id="email" />
+                  <StyledTextInput 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    value={formData.email} 
+                    onChange={handleChange}/>
                 </StyledLabel>
                 <StyledLabel>
                   Message
-                  <StyledTextArea type="message" name="message" rows="4" />
+                  <StyledTextArea 
+                    type="message" 
+                    name="message" 
+                    rows="4" 
+                    value={formData.message} 
+                    onChange={handleChange}/>
                 </StyledLabel>
-                <StyledButton type="submit" value="Submit">
+                <StyledButton 
+                  type="submit" 
+                  value="Submit">
                   Submit
                 </StyledButton>
             </StyledForm>
