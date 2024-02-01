@@ -17,7 +17,7 @@ export const brandColours = {
   quaternary: '#ff9a52', // orange
   quinary: '#d0eec6', // beige
   senary: '#d3f0c8', // light-green
-  septenary: '#ff9a52' //light-orange
+  septenary: '#ff9a52', //light-orange
 };
 
 export const elementColours = {

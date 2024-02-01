@@ -10,7 +10,7 @@ export const minBreakpointQuery = Object.keys(breakpointSizes).reduce(
     `;
     return acc;
   },
-  {}
+  {},
 );
 
 export const maxBreakpointQuery = Object.keys(breakpointSizes).reduce(
@@ -22,5 +22,5 @@ export const maxBreakpointQuery = Object.keys(breakpointSizes).reduce(
     `;
     return acc;
   },
-  {}
+  {},
 );

@@ -5,14 +5,18 @@ import ReportCard from './ReportCard';
 import planeWing from '../images/PlaneWing.png';
 import palmTrees from '../images/PalmTrees.png';
 import childrenSmiling from '../images/ChildrenSmiling.png';
-import { brandColours, brandFonts,  minBreakpointQuery, sectionMargins } from '../styles';
-
+import {
+  brandColours,
+  brandFonts,
+  minBreakpointQuery,
+  sectionMargins,
+} from '../styles';
 
 const StyledReports = styled.section`
   ${sectionMargins()};
   display: flex;
   justify-content: center;
-`
+`;
 
 const StyledHeader = styled.h2`
   display: flex;
@@ -33,7 +37,6 @@ const StyledCards = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
 
   ${minBreakpointQuery.medium`
     flex-direction: row;

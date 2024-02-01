@@ -2,7 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
-import { brandColours, brandFonts, sectionMargins, minBreakpointQuery } from '../styles';
+import {
+  brandColours,
+  brandFonts,
+  sectionMargins,
+  minBreakpointQuery,
+} from '../styles';
 
 const StyledContactForm = styled.section`
   ${sectionMargins()};
@@ -39,7 +44,7 @@ const StyledHeader = styled.h2`
     margin-right: 100px;
   `}
 `;
-    
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -54,8 +59,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledName = styled.div`
-
-    ${minBreakpointQuery.medium`
+  ${minBreakpointQuery.medium`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
@@ -63,126 +67,131 @@ const StyledName = styled.div`
 `;
 
 const StyledLabel = styled.label`
-    font-family: ${brandFonts.sans};
-    font-size: 16px;
-    font-weight: 400;
-    color: ${brandColours.senary};
-    line-height: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+  font-family: ${brandFonts.sans};
+  font-size: 16px;
+  font-weight: 400;
+  color: ${brandColours.senary};
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 `;
 
 const StyledTextInput = styled.input`
-    border-radius: 30px;
-    padding: 10px;
-    margin: 5px;
-    background: ${brandColours.tertiary};
-    border: none;
-    height: 60px;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 5px;
+  background: ${brandColours.tertiary};
+  border: none;
+  height: 60px;
 `;
 
 const StyledTextArea = styled.textarea`
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    background: ${brandColours.tertiary};
-    border: none;
-    margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  background: ${brandColours.tertiary};
+  border: none;
+  margin-bottom: 20px;
 `;
 
 const StyledButton = styled.button`
-    background-color: ${brandColours.senary};
-    font-family: ${brandFonts.sans};
-    color: ${brandColours.primary};
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-    border-radius: 40px;
-    border: none;
-    width: 221px;
-    height: 65px;
-    margin-bottom: 20px;
-    
-    ${minBreakpointQuery.medium`
+  background-color: ${brandColours.senary};
+  font-family: ${brandFonts.sans};
+  color: ${brandColours.primary};
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 40px;
+  border: none;
+  width: 221px;
+  height: 65px;
+  margin-bottom: 20px;
+
+  ${minBreakpointQuery.medium`
       margin-bottom: 87px;
     `}
 
-    transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
 
-    &:hover {
-      background-color: ${brandColours.septenary};
-    };
+  &:hover {
+    background-color: ${brandColours.septenary};
+  }
 `;
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    surname: '',
+    email: '',
+    message: '',
+  });
 
-  const [formData, setFormData] = useState({firstName: "", surname: "", email: "", message: ""});
- 
-
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    console.log(formData)
-};
+    console.log(formData);
+  };
   return (
     <StyledContactForm>
       <Container>
         <StyledOuter>
           <StyledInner>
             <StyledHeader>Contact Us</StyledHeader>
-            <StyledForm onSubmit={handleSubmit}> 
+            <StyledForm onSubmit={handleSubmit}>
               <StyledName>
                 <StyledLabel>
                   First Name
-                  <StyledTextInput 
-                    type="text" 
-                    name="firstName" 
-                    id="firstName" 
-                    value={formData.firstName} 
-                    onChange={handleChange}/>
+                  <StyledTextInput
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
                 </StyledLabel>
                 <StyledLabel>
                   Second Name
-                  <StyledTextInput 
-                    type="text" 
-                    name="surname" 
-                    id="surname" 
-                    value={formData.surname} 
-                    onChange={handleChange}/>
+                  <StyledTextInput
+                    type="text"
+                    name="surname"
+                    id="surname"
+                    value={formData.surname}
+                    onChange={handleChange}
+                  />
                 </StyledLabel>
               </StyledName>
-                <StyledLabel>
-                  Email address
-                  <StyledTextInput 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    value={formData.email} 
-                    onChange={handleChange}/>
-                </StyledLabel>
-                <StyledLabel>
-                  Message
-                  <StyledTextArea 
-                    type="message" 
-                    name="message" 
-                    rows="4" 
-                    value={formData.message} 
-                    onChange={handleChange}/>
-                </StyledLabel>
-                <StyledButton 
-                  type="submit" 
-                  value="Submit">
-                  Submit
-                </StyledButton>
+              <StyledLabel>
+                Email address
+                <StyledTextInput
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledLabel>
+                Message
+                <StyledTextArea
+                  type="message"
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledButton type="submit" value="Submit">
+                Submit
+              </StyledButton>
             </StyledForm>
           </StyledInner>
-        </StyledOuter>  
+        </StyledOuter>
       </Container>
     </StyledContactForm>
   );

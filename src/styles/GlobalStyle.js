@@ -1,5 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import { brandColours, brandFonts, elementColours, fontSize, fontWeights } from '../styles';
+import {
+  brandColours,
+  brandFonts,
+  elementColours,
+  fontSize,
+  fontWeights,
+} from '../styles';
 
 const GlobalStyle = createGlobalStyle`
   *,

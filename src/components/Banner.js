@@ -32,7 +32,7 @@ const StyledInner = styled.section`
 
 const StyledText = styled.section`
   font-family: ${brandFonts.serif};
-  color: ${brandColours.primary}
+  color: ${brandColours.primary};
 `;
 
 const StyledHeader = styled.h1`
@@ -49,31 +49,29 @@ const StyledSubHeader = styled.h2`
 `;
 
 const StyledBody = styled.p`
-    font-family: ${brandFonts.sans};
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 30px;
+  font-family: ${brandFonts.sans};
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
 
-    ${minBreakpointQuery.medium`
+  ${minBreakpointQuery.medium`
       max-width: 478px;
   `}
 `;
 const StyledImage = styled.img`
   display: flex;
   justify-self: center;
-  
+
   ${minBreakpointQuery.medium`
       justify-self: end;
   `}
-
 `;
 
 const Banner = ({ heading, yearfounded, body }) => {
-
-  const foundedDate = new Date(yearfounded); 
-  const currentDate = new Date()
+  const foundedDate = new Date(yearfounded);
+  const currentDate = new Date();
   let foundedYear = foundedDate.getFullYear();
-  let currentYear = currentDate.getFullYear();  
+  let currentYear = currentDate.getFullYear();
 
   return (
     <StyledBanner>
@@ -81,7 +79,9 @@ const Banner = ({ heading, yearfounded, body }) => {
         <StyledInner>
           <StyledText>
             <StyledHeader>{heading}</StyledHeader>
-            <StyledSubHeader>{currentYear - foundedYear} years of experience</StyledSubHeader>
+            <StyledSubHeader>
+              {currentYear - foundedYear} years of experience
+            </StyledSubHeader>
             <StyledBody>{body}</StyledBody>
           </StyledText>
           <StyledImage
@@ -92,8 +92,6 @@ const Banner = ({ heading, yearfounded, body }) => {
       </Container>
     </StyledBanner>
   );
-}
-
-
+};
 
 export default Banner;

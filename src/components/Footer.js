@@ -21,7 +21,7 @@ const StyledInner = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  
+
   ${minBreakpointQuery.medium`
     flex-direction: row;
     justify-content: space-between;
@@ -30,14 +30,14 @@ const StyledInner = styled.div`
 `;
 
 const StyledFooterInfo = styled.div`
-    text-align: center;
+  text-align: center;
 `;
 
 const StyledLink = styled.a`
   cursor: pointer;
   &:hover {
     text-decoration: underline;
-   }
+  }
 `;
 
 const Footer = () => (
@@ -45,9 +45,10 @@ const Footer = () => (
     <Container>
       <StyledInner>
         <StyledFooterInfo>
-          Diversity Travel Ltd. Registered in England and Wales. Registered Number: 05993481
+          Diversity Travel Ltd. Registered in England and Wales. Registered
+          Number: 05993481
         </StyledFooterInfo>
-        <StyledLink 
+        <StyledLink
           href="https://www.attachdigital.co.uk"
           target="_blank"
           rel="noopener"

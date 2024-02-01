@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Banner from '../components/Banner';
 import Video from '../components/Video';
-import Reports from '../components/Reports';
+import Reports from '../components/Reports'; 
 import Form from '../components/Form';
 
 const IndexPage = () => {
@@ -25,7 +25,11 @@ const IndexPage = () => {
   return (
     <Layout seo={seoMetaTags}>
       <main>
-        <Banner heading={title} yearfounded={yearfounded} body={bannerparagraph} />
+        <Banner
+          heading={title}
+          yearfounded={yearfounded}
+          body={bannerparagraph}
+        />
         <Video />
         <Reports />
         <Form />

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
 
-
 //Initialised for transform hover animation
 const StyledContent = styled.div`
   position: absolute;
@@ -34,10 +33,7 @@ const StyledOverlay = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(
-  rgba(0,0,0,0.01) 0%, 
-  rgba(14,50,41,1) 100%
-  );
+  background: linear-gradient(rgba(0, 0, 0, 0.01) 0%, rgba(14, 50, 41, 1) 100%);
 `;
 
 const StyledReportCard = styled.div`
@@ -58,8 +54,8 @@ const StyledReportCard = styled.div`
 
   &:hover ${StyledOverlay} {
     background: linear-gradient(
-    rgba(0,0,0,0.01) 20%, 
-    rgba(14,50,41,1) 100%
+      rgba(0, 0, 0, 0.01) 20%,
+      rgba(14, 50, 41, 1) 100%
     );
   }
 `;
@@ -94,7 +90,7 @@ const StyledPill = styled.div`
 
 const StyledImage = styled.img`
   max-height: 100%;
-  max-width: 100%
+  max-width: 100%;
 `;
 
 const StyledHeader = styled.h3`
@@ -130,7 +126,7 @@ const StyledLink = styled.a`
 const ReportCard = ({ reportImage, alt }) => {
   return (
     <StyledReportCard>
-      <StyledOverlay/>
+      <StyledOverlay />
       <StyledImage src={reportImage} alt={alt} />
       <StyledPill>Report</StyledPill>
       <StyledContent>

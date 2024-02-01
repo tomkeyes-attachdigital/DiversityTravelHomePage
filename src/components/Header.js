@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { Container } from './ui';
 import logo from '../images/diversityTravelLogo.svg';
 
-import {
-  minBreakpointQuery,
-} from '../styles';
+import { minBreakpointQuery } from '../styles';
 
 const StyledHeader = styled.header``;
 
@@ -20,7 +18,7 @@ const StyledLogo = styled.img`
 const Header = () => (
   <StyledHeader>
     <Container>
-        <StyledLogo src={logo} alt="Diversity Travel Logo" />
+      <StyledLogo src={logo} alt="Diversity Travel Logo" />
     </Container>
   </StyledHeader>
 );

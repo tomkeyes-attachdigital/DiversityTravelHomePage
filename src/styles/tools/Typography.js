@@ -7,7 +7,7 @@ export const headingStyles = () => {
       '26px',
       '36px',
       breakpointSizes.tiny,
-      breakpointSizes.xxxxlarge
+      breakpointSizes.xxxxlarge,
     )};
   `;
 };
