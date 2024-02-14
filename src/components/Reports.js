@@ -14,8 +14,6 @@ import {
 
 const StyledReports = styled.section`
   ${sectionMargins()};
-  display: flex;
-  justify-content: center;
 `;
 
 const StyledHeader = styled.h2`
@@ -28,19 +26,19 @@ const StyledHeader = styled.h2`
   line-height: 58px;
   margin-bottom: 30px;
 
-  ${minBreakpointQuery.medium`
-    margin-bottom: 53px;
+  ${minBreakpointQuery.smedium`
+    margin-bottom: 50px;
   `}
 `;
 
 const StyledCards = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  justify-content: center;
+  gap: 22px;
 
   ${minBreakpointQuery.medium`
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   `}
 `;
 

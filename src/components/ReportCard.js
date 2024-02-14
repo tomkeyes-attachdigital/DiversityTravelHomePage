@@ -3,64 +3,88 @@ import styled from 'styled-components';
 import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
 
 //Initialised for transform hover animation
-const StyledContent = styled.div`
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  max-width: 280px;
+const StyledLink = styled.a`
+  font-family: ${brandFonts.sans};
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: ${brandColours.quinary};
   transition: transform 0.4s ease-in-out;
-  transform: translateY(38%);
-  margin-left: 25px;
-  margin-bottom: 35px;
+  transform: translateY(80px);
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const StyledHeader = styled.h3`
+  font-family: ${brandFonts.serif};
+  font-size: 25px;
+  font-weight: 700;
+  color: ${brandColours.tertiary};
+  line-height: 35px;
+  justify-self: start;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease-in-out;
+  transform: translateY(80px);
 
   ${minBreakpointQuery.medium`
-    left: 0px;
-    bottom: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    font-size: 20px;
   `}
 
   ${minBreakpointQuery.large`
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-bottom: 40px;
+    font-size: 30px;
+    margin-bottom: 50px;
   `}
 `;
 
-//Initialised for gradient hover effect
-const StyledOverlay = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.01) 0%, rgba(14, 50, 41, 1) 100%);
-`;
-
-const StyledReportCard = styled.div`
-  overflow: hidden;
+const StyledReportCard = styled.article`
   position: relative;
+  display: grid;
   cursor: pointer;
   border-radius: 15px;
-  margin-bottom: 30px;
+  max-width: 380px;
 
   ${minBreakpointQuery.medium`
-    margin-left: 10px;
-    margin-right: 10px;
+    max-height: 470px;
   `}
 
-  &:hover ${StyledContent} {
-    transform: translateY(0%);
+  &:hover ${StyledLink} {
+    transform: translateY(0px);
   }
 
-  &:hover ${StyledOverlay} {
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.01) 20%,
+  &:hover ${StyledHeader} {
+    transform: translateY(0px);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.01) 0%,
+      rgba(14, 50, 41, 1) 100%
+    );
+  }
+
+  &:hover:after {
+    content: '';
+    opacity: 0.7;
+    transition: opacity 0.4s ease-in-out;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.01) 0%,
       rgba(14, 50, 41, 1) 100%
     );
   }
 `;
 
-const StyledPill = styled.div`
+const StyledPill = styled.span`
+  position: relative;
   font-family: ${brandFonts.sans};
   font-size: 14px;
   font-weight: 700;
@@ -70,69 +94,59 @@ const StyledPill = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 69px;
-  height: 28px;
+  width: 70px;
+  height: 30px;
   border-radius: 20px;
-  position: absolute;
-  left: 25px;
-  top: 25px;
-
-  ${minBreakpointQuery.medium`
-    left: 25px;
-    top: 25px;
-  `}
-
-  ${minBreakpointQuery.large`
-    left: 40px;
-    top: 40px;
-  `}
 `;
 
 const StyledImage = styled.img`
+  display: grid;
+  grid-area: 1 / 1 / 1 / 1;
+  position: relative;
+  border-radius: 15px;
   max-height: 100%;
   max-width: 100%;
+  object-fit: contain;
 `;
 
-const StyledHeader = styled.h3`
-  font-family: ${brandFonts.serif};
-  font-size: 25px;
-  font-weight: 700;
-  color: ${brandColours.tertiary};
-  line-height: 35px;
-  margin-bottom: 20px;
+const StyledContentOuter = styled.div`
+  position: relative;
+  display: grid;
+  grid-area: 1 / 1 / 1 / 1;
+  grid-template-rows: repeat(2, 1fr);
+
+  overflow: hidden;
+  z-index: 20;
+  margin: 20px;
 
   ${minBreakpointQuery.medium`
-    font-size: 20px;
+    margin: 40px;
   `}
 
-  ${minBreakpointQuery.large`
-    font-size: 30px;
-    margin-bottom: 40px;
+  ${minBreakpointQuery.smedium`
+    margin: 30px;
   `}
 `;
 
-const StyledLink = styled.a`
-  font-family: ${brandFonts.sans};
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  color: ${brandColours.quinary};
-
-  &:hover {
-    text-decoration: underline;
-  }
+const StyledContentInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const ReportCard = ({ reportImage, alt }) => {
   return (
     <StyledReportCard>
-      <StyledOverlay />
       <StyledImage src={reportImage} alt={alt} />
-      <StyledPill>Report</StyledPill>
-      <StyledContent>
-        <StyledHeader>Travel & Covid-19 The Financial Loss States</StyledHeader>
-        <StyledLink>READ POST</StyledLink>
-      </StyledContent>
+      <StyledContentOuter>
+        <StyledPill>Report</StyledPill>
+        <StyledContentInner>
+          <StyledHeader>
+            Travel & Covid-19 The Financial Loss States
+          </StyledHeader>
+          <StyledLink>read post</StyledLink>
+        </StyledContentInner>
+      </StyledContentOuter>
     </StyledReportCard>
   );
 };
