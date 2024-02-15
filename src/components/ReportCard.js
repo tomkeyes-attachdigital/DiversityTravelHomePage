@@ -2,95 +2,77 @@ import React from 'react';
 import styled from 'styled-components';
 import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
 
-//Initialised for transform hover animation
-const StyledContent = styled.div`
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  max-width: 280px;
-  transition: transform 0.4s ease-in-out;
-  transform: translateY(38%);
-  margin-left: 25px;
-  margin-bottom: 35px;
-
-  ${minBreakpointQuery.medium`
-    left: 0px;
-    bottom: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
-  `}
-
-  ${minBreakpointQuery.large`
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-bottom: 40px;
-  `}
-`;
-
-//Initialised for gradient hover effect
-const StyledOverlay = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.01) 0%, rgba(14, 50, 41, 1) 100%);
-`;
-
-const StyledReportCard = styled.div`
-  overflow: hidden;
+const StyledReportCard = styled.article`
   position: relative;
+  display: grid;
   cursor: pointer;
+  max-width: 380px;
   border-radius: 15px;
-  margin-bottom: 30px;
-
-  ${minBreakpointQuery.medium`
-    margin-left: 10px;
-    margin-right: 10px;
-  `}
-
-  &:hover ${StyledContent} {
-    transform: translateY(0%);
-  }
-
-  &:hover ${StyledOverlay} {
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.01) 20%,
-      rgba(14, 50, 41, 1) 100%
-    );
-  }
 `;
 
-const StyledPill = styled.div`
+const StyledImage = styled.img`
+  display: grid;
+  grid-area: 1 / 1 / 1 / 1;
+  position: relative;
+  border-radius: 15px;
+`;
+
+const StyledPillWrapper = styled.div`
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: fit-content;
+  height: fit-content;
+  background: ${brandColours.quaternary};
+`;
+
+const StyledPill = styled.span`
   font-family: ${brandFonts.sans};
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   color: ${brandColours.tertiary};
-  background: ${brandColours.quaternary};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 69px;
-  height: 28px;
-  border-radius: 20px;
-  position: absolute;
-  left: 25px;
-  top: 25px;
-
-  ${minBreakpointQuery.medium`
-    left: 25px;
-    top: 25px;
-  `}
-
-  ${minBreakpointQuery.large`
-    left: 40px;
-    top: 40px;
-  `}
 `;
 
-const StyledImage = styled.img`
-  max-height: 100%;
-  max-width: 100%;
+const StyledContentInner = styled.div`
+  transition: transform 0.4s ease-in-out;
+  transform: translateY(100px);
+`;
+
+const StyledContentOuter = styled.div`
+  position: relative;
+  display: grid;
+  grid-area: 1 / 1 / 1 / 1;
+  grid-template-rows: repeat(2, 1fr);
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 15px;
+  max-height: 490px;
+
+  ${minBreakpointQuery.medium`
+    padding: 40px;
+  `}
+
+  ${minBreakpointQuery.smedium`
+    padding: 30px;
+  `}
+
+  &:hover ${StyledContentInner} {
+    transform: translateY(40px);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.01) 0%,
+      rgba(14, 50, 41, 1) 100%
+    );
+  }
 `;
 
 const StyledHeader = styled.h3`
@@ -99,6 +81,7 @@ const StyledHeader = styled.h3`
   font-weight: 700;
   color: ${brandColours.tertiary};
   line-height: 35px;
+  justify-self: start;
   margin-bottom: 20px;
 
   ${minBreakpointQuery.medium`
@@ -107,7 +90,7 @@ const StyledHeader = styled.h3`
 
   ${minBreakpointQuery.large`
     font-size: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   `}
 `;
 
@@ -116,6 +99,7 @@ const StyledLink = styled.a`
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
+  text-transform: uppercase;
   color: ${brandColours.quinary};
 
   &:hover {
@@ -126,13 +110,18 @@ const StyledLink = styled.a`
 const ReportCard = ({ reportImage, alt }) => {
   return (
     <StyledReportCard>
-      <StyledOverlay />
       <StyledImage src={reportImage} alt={alt} />
-      <StyledPill>Report</StyledPill>
-      <StyledContent>
-        <StyledHeader>Travel & Covid-19 The Financial Loss States</StyledHeader>
-        <StyledLink>READ POST</StyledLink>
-      </StyledContent>
+      <StyledContentOuter>
+        <StyledPillWrapper>
+          <StyledPill>Report</StyledPill>
+        </StyledPillWrapper>
+        <StyledContentInner>
+          <StyledHeader>
+            Travel & Covid-19 The Financial Loss States
+          </StyledHeader>
+          <StyledLink>Read post</StyledLink>
+        </StyledContentInner>
+      </StyledContentOuter>
     </StyledReportCard>
   );
 };

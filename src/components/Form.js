@@ -13,20 +13,35 @@ const StyledContactForm = styled.section`
   ${sectionMargins()};
 `;
 
-const StyledOuter = styled.section`
+const StyledOuter = styled.div`
   min-width: 100%;
   display: flex;
   justify-content: center;
 `;
 
-const StyledInner = styled.section`
+const StyledInner = styled.div`
   background: ${brandColours.primary};
   border-radius: 10px;
   width: 100%;
+  padding: 20px;
+
+  ${minBreakpointQuery.small`
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+  `};
+
+  ${minBreakpointQuery.medium`
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 100px;
+    padding-right: 100px;
+  `};
 
   ${minBreakpointQuery.mlarge`
      max-width: 980px;
-  `}
+  `};
 `;
 
 const StyledHeader = styled.h2`
@@ -35,34 +50,20 @@ const StyledHeader = styled.h2`
   font-weight: 700;
   color: ${brandColours.senary};
   line-height: 55px;
-  padding: 20px;
-
-  ${minBreakpointQuery.medium`
-    padding-top: 82px;
-    margin-bottom: 43px;
-    margin-left: 100px;
-    margin-right: 100px;
-  `}
+  margin-bottom: 30px;
 `;
 
 const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
+  display: grid;
+  grid-row-gap: 0px;
   border-radius: 10px;
-  margin: 20px;
 
-  ${minBreakpointQuery.medium`
-      margin-left: 100px;
-      margin-right: 100px;
-    `}
-`;
-
-const StyledName = styled.div`
-  ${minBreakpointQuery.medium`
+  ${minBreakpointQuery.smedium`
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 25px;
+      grid-row-gap: 0px;
     `}
 `;
 
@@ -75,25 +76,40 @@ const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 20px;
+
+  ${minBreakpointQuery.smedium`
+    &:nth-child(3) {
+      grid-column: span 2
+    }
+    &:nth-child(4) {
+      grid-column: span 2
+    }
+    &:nth-child(5) {
+      grid-column: span 2
+    }
+  `}
 `;
 
 const StyledTextInput = styled.input`
   border-radius: 30px;
-  padding: 10px;
-  margin: 5px;
+  padding: 15px;
   background: ${brandColours.tertiary};
   border: none;
   height: 60px;
+  margin-top: 5px;
 `;
 
 const StyledTextArea = styled.textarea`
   border-radius: 10px;
-  padding: 10px;
-  margin: 5px;
+  padding: 15px;
+  margin-top: 5px;
   background: ${brandColours.tertiary};
   border: none;
-  margin-bottom: 20px;
+  resize: vertical;
+  min-height: 120px;
+  max-height: 200px;
 `;
 
 const StyledButton = styled.button`
@@ -105,12 +121,11 @@ const StyledButton = styled.button`
   line-height: 20px;
   border-radius: 40px;
   border: none;
-  width: 221px;
   height: 65px;
-  margin-bottom: 20px;
+  margin-top: 35px;
 
-  ${minBreakpointQuery.medium`
-      margin-bottom: 87px;
+  ${minBreakpointQuery.small`
+      max-width: 220px;
     `}
 
   transition: background-color 0.2s linear;
@@ -144,28 +159,26 @@ const ContactForm = () => {
           <StyledInner>
             <StyledHeader>Contact Us</StyledHeader>
             <StyledForm onSubmit={handleSubmit}>
-              <StyledName>
-                <StyledLabel>
-                  First Name
-                  <StyledTextInput
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                  />
-                </StyledLabel>
-                <StyledLabel>
-                  Second Name
-                  <StyledTextInput
-                    type="text"
-                    name="surname"
-                    id="surname"
-                    value={formData.surname}
-                    onChange={handleChange}
-                  />
-                </StyledLabel>
-              </StyledName>
+              <StyledLabel>
+                First Name
+                <StyledTextInput
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledLabel>
+                Second Name
+                <StyledTextInput
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  value={formData.surname}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
               <StyledLabel>
                 Email address
                 <StyledTextInput
@@ -181,7 +194,7 @@ const ContactForm = () => {
                 <StyledTextArea
                   type="message"
                   name="message"
-                  rows="4"
+                  rows="6"
                   value={formData.message}
                   onChange={handleChange}
                 />

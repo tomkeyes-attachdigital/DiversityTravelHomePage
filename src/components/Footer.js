@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
-import { brandColours, brandFonts, minBreakpointQuery } from '../styles';
+import { brandColours, brandFonts, maxBreakpointQuery } from '../styles';
 
 const StyledFooter = styled.footer`
   height: 120px;
@@ -20,16 +20,17 @@ const StyledInner = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
 
-  ${minBreakpointQuery.medium`
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0px;
+  ${maxBreakpointQuery.medium`
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
   `}
 `;
 
-const StyledFooterInfo = styled.div`
+const StyledFooterInfo = styled.p`
   text-align: center;
 `;
 

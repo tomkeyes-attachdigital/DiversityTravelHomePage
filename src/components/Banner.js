@@ -15,22 +15,27 @@ const StyledBanner = styled.section`
   ${sectionMargins()};
 `;
 
-const StyledInner = styled.section`
+const StyledInner = styled.div`
   display: grid;
-  gap: 30px;
+  gap: 20px;
 
   ${minBreakpointQuery.small`
-    gap: 40px;
+    gap: 70px;
+  `}
+
+  ${minBreakpointQuery.smedium`
+    gap: 120px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;  
   `}
 
   ${minBreakpointQuery.medium`
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    justify-content: space-between;   
+    gap: 150px; 
   `}
 `;
 
-const StyledText = styled.section`
+const StyledText = styled.div`
   font-family: ${brandFonts.serif};
   color: ${brandColours.primary};
 `;
@@ -38,33 +43,39 @@ const StyledText = styled.section`
 const StyledHeader = styled.h1`
   font-size: 50px;
   font-weight: 700;
-  line-height: 58px;
+  font-size: 40px;
+
+  ${minBreakpointQuery.small`
+    font-size: 50px;
+  `}
 `;
 
 const StyledSubHeader = styled.h2`
-  font-size: 30px;
   font-weight: 400;
   color: ${brandColours.secondary};
-  line-height: 58px;
+  margin-top: 10px;
+  font-size: 26px;
+
+  ${minBreakpointQuery.small`
+    font-size: 30px;
+  `}
 `;
 
 const StyledBody = styled.p`
   font-family: ${brandFonts.sans};
   font-weight: 400;
-  font-size: 18px;
   line-height: 30px;
+  margin-top: 20px;
+  font-size: 16px;
 
-  ${minBreakpointQuery.medium`
-      max-width: 478px;
+  ${minBreakpointQuery.small`
+    font-size: 18px;
   `}
 `;
+
 const StyledImage = styled.img`
   display: flex;
   justify-self: center;
-
-  ${minBreakpointQuery.medium`
-      justify-self: end;
-  `}
 `;
 
 const Banner = ({ heading, yearfounded, body }) => {
