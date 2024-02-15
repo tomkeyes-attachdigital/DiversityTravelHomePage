@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from './ui';
-import {
-  brandColours,
-  brandFonts,
-  minBreakpointQuery,
-  maxBreakpointQuery,
-} from '../styles';
+import { brandColours, brandFonts, maxBreakpointQuery } from '../styles';
 
 const StyledFooter = styled.footer`
   height: 120px;

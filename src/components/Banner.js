@@ -17,23 +17,27 @@ const StyledBanner = styled.section`
 
 const StyledInner = styled.div`
   display: grid;
-  gap: 30px;
+  gap: 20px;
 
-  ${minBreakpointQuery.medium`
-    gap: 150px;
+  ${minBreakpointQuery.small`
+    gap: 70px;
+  `}
+
+  ${minBreakpointQuery.smedium`
+    gap: 120px;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;  
+  `}
+
+  ${minBreakpointQuery.medium`
+    gap: 150px; 
   `}
 `;
 
 const StyledText = styled.div`
   font-family: ${brandFonts.serif};
   color: ${brandColours.primary};
-
-  ${minBreakpointQuery.medium`
-    max-width: 480px; 
-  `}
 `;
 
 const StyledHeader = styled.h1`
